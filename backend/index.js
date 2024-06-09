@@ -15,7 +15,10 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json()); //to convert request data to json
 
 app.use('/media', express.static(path.join(__dirname, 'media')));
+app.get("/",(req,res)=>{
+  res.send(" backend working");
 
+});
 
 // Credential Apis
 app.use("/api/student/auth", require("./routes/Student Api/credential.route"));
