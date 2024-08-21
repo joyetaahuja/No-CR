@@ -5,7 +5,7 @@ import Heading from "../../components/Heading";
 import { useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
 import { baseApiURL } from "../../baseUrl";
-import {timetableUrl} from '../../public/images/Timetable_3_Semester_CSE.png'
+import timetableUrl from '../../assets/images/Timetable_3_Semester_CSE.png'
 
 const Timetable = () => {
   const [timetable, setTimetable] = useState("");
@@ -67,7 +67,7 @@ const Timetable = () => {
       {timetable && (
         <img
           className="mt-8 rounded-lg shadow-md w-[70%] mx-auto"
-          src=""
+          src={timetableUrl}
           alt="timetable"
         />
       )}
