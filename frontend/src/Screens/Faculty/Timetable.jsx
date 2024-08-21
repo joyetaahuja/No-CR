@@ -56,7 +56,7 @@ const Timetable = () => {
       .catch((error) => {
         toast.dismiss();
         console.log("FIle error", error);
-        toast.error(error.response.data.message);
+        toast.error(response.data.message);
       });
   };
 

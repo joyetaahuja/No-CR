@@ -8,11 +8,15 @@ require("dotenv").config();
 const port = 5000 || process.env.PORT;
 var cors = require("cors");
 
-// app.use(cors({
-//   origin: process.env.FRONTEND_API_LINK
-// }));
+// CORS configuration
+const corsOptions = {
+  origin: 'https://no-cr.vercel.app', // Your frontend origin
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+};
 
-app.use(cors());
+// Apply CORS middleware
+app.use(cors(corsOptions));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json()); //to convert request data to json
 
