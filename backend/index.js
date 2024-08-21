@@ -11,6 +11,11 @@ var cors = require("cors");
 // app.use(cors({
 //   origin: process.env.FRONTEND_API_LINK
 // }));
+app.use(cors({
+  origin: ['https://no-cr.vercel.app/'],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"]
+}))
 app.use(cors());
 app.use(express.urlencoded({extended:true}));
 app.use(express.json()); //to convert request data to json
