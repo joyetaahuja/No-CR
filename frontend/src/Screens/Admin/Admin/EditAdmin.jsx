@@ -260,6 +260,7 @@ const EditAdmin = () => {
             <input
               hidden
               type="file"
+              name="profile"
               id="file"
               accept="image/*"
               onChange={handleFileChange}

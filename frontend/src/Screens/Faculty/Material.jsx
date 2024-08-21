@@ -119,7 +119,7 @@ const Material = () => {
               htmlFor="upload"
               className="px-2 bg-green-50 py-3 rounded-sm text-base w-[80%] mt-4 flex justify-center items-center cursor-pointer"
             >
-              Upload Material
+              Upload Material (PDF)
               <span className="ml-2">
                 <FiUpload />
               </span>

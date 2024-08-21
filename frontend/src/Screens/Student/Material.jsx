@@ -13,48 +13,48 @@ const Material = () => {
   const [materials, setMaterials] = useState([]);
   const userData = useSelector((state) => state.userData);
 
- // Inside your Material component
+  // Inside your Material component
 
- useEffect(() => {
-  if (userData) {
-    toast.loading("Loading Subjects");
-    axios
-      .get(`${baseApiURL()}/student/details/getStudentSubjects/${userData.enrollmentNo}`)
-      .then((response) => {
-        toast.dismiss();
-        if (response.data.success) {
-          setAllSubjects(response.data.subjects);
-          // Fetch all subjects here
-          axios
-            .get(`${baseApiURL()}/subject/getSubject`)
-            .then((res) => {
-              if (res.data.success) {
-                console.log(res.data)
-                const allSubjects = res.data.subject;
-                console.log(allSubjects);
-                // Now, filter the subjects that match the student's subjects
-                const studentSubjects = response.data.subjects.map(subject => subject);
-              console.log(studentSubjects)
-              console.log(studentSubjects[0])
-                const matchedSubjects = allSubjects.filter(subject => studentSubjects[0].includes(subject.name));
-                setAllSubjects(matchedSubjects);
-              } else {
-                toast.error(res.data.message);
-              }
-            })
-            .catch((error) => {
-              toast.error("Failed to fetch subjects");
-            });
-        } else {
-          toast.error(response.data.message);
-        }
-      })
-      .catch((error) => {
-        toast.dismiss();
-        toast.error("Failed to fetch subjects");
-      });
-  }
-}, [userData]);
+  useEffect(() => {
+    if (userData) {
+      toast.loading("Loading Subjects");
+      axios
+        .get(`${baseApiURL()}/student/details/getStudentSubjects/${userData.enrollmentNo}`)
+        .then((response) => {
+          toast.dismiss();
+          if (response.data.success) {
+            setAllSubjects(response.data.subjects);
+            // Fetch all subjects here
+            axios
+              .get(`${baseApiURL()}/subject/getSubject`)
+              .then((res) => {
+                if (res.data.success) {
+                  console.log(res.data)
+                  const allSubjects = res.data.subject;
+                  console.log(allSubjects);
+                  // Now, filter the subjects that match the student's subjects
+                  const studentSubjects = response.data.subjects.map(subject => subject);
+                  console.log(studentSubjects)
+                  console.log(studentSubjects[0])
+                  const matchedSubjects = allSubjects.filter(subject => studentSubjects[0].includes(subject.name));
+                  setAllSubjects(matchedSubjects);
+                } else {
+                  toast.error(res.data.message);
+                }
+              })
+              .catch((error) => {
+                toast.error("Failed to fetch subjects");
+              });
+          } else {
+            toast.error(response.data.message);
+          }
+        })
+        .catch((error) => {
+          toast.dismiss();
+          toast.error("Failed to fetch subjects");
+        });
+    }
+  }, [userData]);
 
 
   const getSubjectMaterial = () => {
@@ -129,9 +129,8 @@ const Material = () => {
                 className="border-green-500 border-2 w-full rounded-md shadow-sm py-4 px-6 relative mb-4"
               >
                 <p
-                  className={`text-xl font-medium flex justify-start items-center ${
-                    item.link && "cursor-pointer"
-                  } group`}
+                  className={`text-xl font-medium flex justify-start items-center ${item.link && "cursor-pointer"
+                    } group`}
                   onClick={() =>
                     item.link &&
                     window.open(
@@ -157,9 +156,9 @@ const Material = () => {
                 </p>
               </div>
             ))}
-          {!materials.length && selectedSubject && (
+          {/* {!materials.length && selectedSubject && (
             <p className="text-center">No Material For {selectedSubject}!</p>
-          )}
+          )} */}
         </div>
       </div>
     </div>
