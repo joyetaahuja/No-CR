@@ -16,8 +16,10 @@ const getTimetable = async (req, res) => {
 
 const addTimetable = async (req, res) => {
     let { semester, branch } = req.body;
+    console.log(req.file)
     try {
         let timetable = await Timetable.findOne({ semester, branch });
+        console.log(timetable)
         if (timetable) {
             await Timetable.findByIdAndUpdate(timetable._id, {
                 semester, branch, link: req.file.filename

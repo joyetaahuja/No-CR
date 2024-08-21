@@ -54,7 +54,7 @@ const Timetable = () => {
           <p
             className="flex justify-center items-center text-lg font-medium cursor-pointer hover:text-blue-500 hover:scale-110 ease-linear transition-all duration-200 hover:duration-200 hover:ease-linear hover:transition-all"
             onClick={() =>
-              window.open(process.env.REACT_APP_MEDIA_LINK + "/" + timetable)
+              window.open(timetableUrl)
             }
           >
             Download

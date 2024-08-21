@@ -129,7 +129,7 @@ const Timetable = () => {
           )}
           <input
             type="file"
-            name="upload"
+            name="timetable"
             id="upload"
             accept="image/*"
             hidden
