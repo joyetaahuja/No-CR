@@ -2,33 +2,17 @@ const connectToMongo = require("./Database/db");
 const express = require("express");
 const app = express();
 const path = require("path")
-connectToMongo();
+ connectToMongo();
 require("dotenv").config();
 // console.log("This is dbUrl",process.env.MONGODB_URI);
 const port = 5000 || process.env.PORT;
 var cors = require("cors");
 
+// app.use(cors({
+//   origin: process.env.FRONTEND_API_LINK
+// }));
 
-// List of allowed origins
-const allowedOrigins = [
-  'http://localhost:3000', // Local development
-  'https://no-cr.vercel.app' // Production domain
-];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Content-Type,Authorization"
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.urlencoded({extended:true}));
 app.use(express.json()); //to convert request data to json
 
