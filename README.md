@@ -16,6 +16,6 @@ Demo video Link: https://www.youtube.com/watch?v=4Eqk-Ni7BAw
   - Access subject-specific study materials.
   - View timetables, marks, and announcements.
 ## Technologies Used
-- Frontend:React.js,Redux
+- Frontend:React.js, Redux
 - Backend: Node.js, Express.js
 - Database: MongoDB
